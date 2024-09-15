@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:camunda
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+
+camunda.bpm:
+  admin-user:
+    id: demo
+    password: demo
+  filter:
+    create: All tasks
+  default-serialization-format: application/json
+  auto-deployment-enabled: true
+  deployment-resource-pattern:
+    - classpath*:**/*.bpmn
+    - classpath*:**/*.bpmn20.xml
+    - classpath*:**/*.dmn
+    - classpath*:**/*.dmn11.xml
+    - classpath*:**/*.form
+
+  database:
+    type: h2
+  job-execution:
+    deployment-aware: false
+
+hr:
+  system:
+    api:
+      url: https://jsonplaceholder.typicode.com
